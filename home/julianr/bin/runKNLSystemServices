@@ -1,0 +1,5 @@
+#!/opt/knlservices/Java/jdk1.8.0_60/bin/jrunscript -e
+
+
+println("Hello World");
+
