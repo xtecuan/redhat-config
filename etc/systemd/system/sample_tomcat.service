@@ -1,0 +1,20 @@
+[Unit]
+Description=Apache Tomcat
+After=network.target
+
+[Service]
+Type=forking  
+PIDFile=/var/run/tomcat.pid
+User=tomcat
+Group=tomcat
+Environment=JAVA_HOME=/path/to/java
+Environment=CATALINA_HOME=/opt/tomcat
+...
+
+Restart=on-failure
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
