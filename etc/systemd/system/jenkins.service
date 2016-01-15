@@ -1,0 +1,18 @@
+[Unit]
+Description=Jenkins Service (apache-tomcat-7.0.67)
+After=network.target
+
+[Service]
+Type=forking  
+PIDFile=/opt/knlservices/services/apache-tomcat-7.0.67/instances/jenkins/logs/jenkins.pid
+User=tomcat
+Group=knlservices
+
+
+Restart=on-failure
+
+ExecStart=/opt/knlservices/services/apache-tomcat-7.0.67/instances/jenkins/bin/start.sh
+ExecStop=/opt/knlservices/services/apache-tomcat-7.0.67/instances/jenkins/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
